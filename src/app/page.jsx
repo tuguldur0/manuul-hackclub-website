@@ -7,6 +7,10 @@ export default function Home() {
   const [cursorBlink, setCursorBlink] = useState(true);
 
   useEffect(() => {
+    document.title = "Manuul Hack Club";
+  }, []);
+
+  useEffect(() => {
     const blinkInterval = setInterval(() => {
       setCursorBlink((prev) => !prev);
     }, 400);
@@ -95,9 +99,6 @@ export default function Home() {
             <div className="pt-4 pb-4 animate-fade-in">
               <button className="group relative inline-flex items-center justify-center px-8 py-3 font-bold tracking-widest text-[#FFFFFF] bg-[#FF4500] rounded-sm hover:bg-[#FFFFFF] hover:text-[#121212] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 focus:ring-offset-[#121212]">
                 <span>join club</span>
-                <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">
-                  {">"}
-                </span>
               </button>
             </div>
           )}

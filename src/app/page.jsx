@@ -41,12 +41,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#121212] font-mono text-[#FFFFFF] p-4 md:p-8 flex items-center justify-center selection:bg-[#FF4500]/30 selection:text-[#FFFFFF]">
       <div className="w-full max-w-3xl bg-[#121212]/90 backdrop-blur-md rounded-md overflow-hidden shadow-2xl border-2 border-[#262626] flex flex-col h-[85vh] md:h-auto">
-        <div className="p-5 md:p-8 text-sm md:text-base space-y-5 overflow-y-auto max-h-[80vh] flex-grow [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="text-[#999999] opacity-70">
-            [kitty] configuring terminal emulator... done.
-            <br />
-            Starting...
-          </div>
+        <div className="p-5 md:p-8 text-sm md:text-base space-y-5 overflow-y-auto max-h-[80vh] grow [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="text-[#999999] opacity-70">Starting...</div>
 
           {step > 0 && (
             <div className="animate-fade-in">
@@ -57,8 +53,16 @@ export default function Home() {
 
           {step > 1 && (
             <div className="text-[#999999] pl-4 md:pl-6 border-l-2 border-[#262626] animate-fade-in py-1">
-              Manuul Hack Club: a Hack Club community based in Ulaanbaatar,
-              Mongolia.
+              <pre>
+                {`Manuul Hack Club: A student-led engineering club based in 
+Ulaanbaatar, Mongolia.
+[INFO]
+- What we do: Custom hardware, Web development, Software, and everything
+  in between.
+- Venue     : American Corner Ulaanbaatar
+- Schedule  : Weekly workshops & hack sessions
+- Access    : Open to all students 13-18 (no experience required)`}
+              </pre>
             </div>
           )}
 
@@ -97,7 +101,13 @@ export default function Home() {
 
           {step > 5 && (
             <div className="pt-4 pb-4 animate-fade-in">
-              <button className="group relative inline-flex items-center justify-center px-8 py-3 font-bold tracking-widest text-[#FFFFFF] bg-[#FF4500] rounded-sm hover:bg-[#FFFFFF] hover:text-[#121212] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 focus:ring-offset-[#121212]">
+              <button
+                onClick={() =>
+                  (window.location.href =
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfGijj4QvcHkYPE2CGAeol_XS0ev60Zh2rYFfHG1sQwFjv1Xw/viewform?usp=header")
+                }
+                className="hover:cursor-pointer group relative inline-flex items-center justify-center px-8 py-3 font-bold tracking-widest text-[#FFFFFF] bg-[#FF4500] rounded-sm hover:bg-[#FFFFFF] hover:text-[#121212] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 focus:ring-offset-[#121212]"
+              >
                 <span>join club</span>
               </button>
             </div>
@@ -119,7 +129,7 @@ export default function Home() {
             <span>1</span>
             <span>bash</span>
           </div>
-          <div className="flex-grow"></div>
+          <div className="grow"></div>
         </div>
       </div>
     </div>

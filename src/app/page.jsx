@@ -104,7 +104,7 @@ Ulaanbaatar, Mongolia.
               <button
                 onClick={() =>
                   (window.location.href =
-                    "https://docs.google.com/forms/d/e/1FAIpQLSfGijj4QvcHkYPE2CGAeol_XS0ev60Zh2rYFfHG1sQwFjv1Xw/viewform?usp=header")
+                    "https://docs.google.com/forms/d/e/1FAIpQLSfGijj4QvcHkYPE2CGAeol_XS0ev60Zh2rYFfHG1sQwFjv1Xw/viewform?usp=dialog")
                 }
                 className="hover:cursor-pointer group relative inline-flex items-center justify-center px-8 py-3 font-bold tracking-widest text-[#FFFFFF] bg-[#FF4500] rounded-sm hover:bg-[#FFFFFF] hover:text-[#121212] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 focus:ring-offset-[#121212]"
               >

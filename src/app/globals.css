@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Tokens from the Figma file (html.to.design collection) */
+@theme {
+  --color-night: #0b0724; /* color/blue/8 */
+  --color-surface: #2b255b; /* color/blue/25 */
+  --color-azure: #4b74b1; /* color/azure/49 */
+  --color-magenta: #c88cbe; /* color/magenta/67 */
+  --color-sun: #fde047; /* Bright Sun */
+  --color-astra: #f8f0ab; /* Astra */
+  --color-carnation: #f56d5e; /* Carnation */
+  --color-go: #4caf50; /* Chateau Green */
+
+  --radius-card: 2.5rem; /* corner radius/40 */
+
+  /* Hard offset shadows for the cut-paper look, in Astra so they read on dark */
+  --shadow-pop: 5px 5px 0 0 #f8f0ab;
+  --shadow-pop-sm: 3px 3px 0 0 #f8f0ab;
+  --shadow-pop-lg: 8px 8px 0 0 #f8f0ab;
+
+  /* Poppins/ExtraBold 80 */
+  --text-hero: clamp(2.75rem, 1.6rem + 4.6vw, 5rem);
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.0375em;
+  --text-hero--font-weight: 800;
+
+  /* Poppins/Bold 46 */
+  --text-h2: clamp(2rem, 1.4rem + 2.4vw, 2.875rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.022em;
+  --text-h2--font-weight: 700;
+
+  /* Poppins/Bold 36 */
+  --text-h3: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-h3--line-height: 1.05;
+  --text-h3--letter-spacing: -0.014em;
+  --text-h3--font-weight: 700;
+
+  /* Poppins/SemiBold 24 */
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  --text-lead--line-height: 1.5;
+  --text-lead--font-weight: 600;
+
+  /* Poppins/ExtraBold 11 */
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.5;
+  --text-label--letter-spacing: 0.045em;
+  --text-label--font-weight: 800;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  --font-display: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Poppins has no Cyrillic; Mongolian words also run longer, so the hero starts smaller */
+html[lang="mn"] {
+  --font-display: var(--font-montserrat), var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --text-hero: clamp(2.25rem, 1.2rem + 4.2vw, 4.5rem);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-night);
+  color: var(--color-astra);
+}
+
+::selection {
+  background: var(--color-sun);
+  color: var(--color-night);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sun);
+  outline-offset: 3px;
+}
+
+.on-light :focus-visible {
+  outline-color: var(--color-night);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
